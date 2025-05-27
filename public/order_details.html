@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Pemesanan - Kafe Express</title>
+    <link rel="stylesheet" href="assets/css/style_orderDetails.css" />
+  </head>
+
+    <body>
+    <header>
+      <div class="container">
+        <div class="logo">Kafe Express</div>
+        <a href="index.html" class="back-link">← Kembali ke Menu</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="order-section">
+        <h2>Rincian Pesanan</h2>
+
+        <div class="order-items">
+          <div class="order-item">
+            <div class="item-name">Kopi Latte</div>
+            <div class="item-quantity">2 x</div>
+            <div class="item-price">Rp30.000</div>
+          </div>
+          <div class="order-item">
+            <div class="item-name">Roti Bakar</div>
+            <div class="item-quantity">1 x</div>
+            <div class="item-price">Rp15.000</div>
+          </div>
+        </div>
+
+        <div class="order-summary">
+          <div class="summary-row">
+            <div>Subtotal</div>
+            <div>Rp75.000</div>
+          </div>
+          <div class="summary-row">
+            <div>Pajak (10%)</div>
+            <div>Rp7.500</div>
+          </div>
+          <div class="summary-row total">
+            <div>Total</div>
+            <div>Rp82.500</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="order-section">
+        <h2>Informasi Pemesanan</h2>
+
+        <form method="post" action="" class="checkout-form">
+          <div class="form-group">
+            <label for="customer_name">Nama</label>
+            <input type="text" id="customer_name" name="customer_name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="table_number">Nomor Meja</label>
+            <select id="table_number" name="table_number" required>
+              <option value="">Pilih Nomor Meja</option>
+              <!-- Nomor meja 1-20 -->
+              <option value="1">Meja 1</option>
+              <option value="2">Meja 2</option>
+              <option value="3">Meja 3</option>
+              <option value="4">Meja 4</option>
+              <option value="5">Meja 5</option>
+              <option value="6">Meja 6</option>
+              <option value="7">Meja 7</option>
+              <option value="8">Meja 8</option>
+              <option value="9">Meja 9</option>
+              <option value="10">Meja 10</option>
+              <option value="11">Meja 11</option>
+              <option value="12">Meja 12</option>
+              <option value="13">Meja 13</option>
+              <option value="14">Meja 14</option>
+              <option value="15">Meja 15</option>
+              <option value="16">Meja 16</option>
+              <option value="17">Meja 17</option>
+              <option value="18">Meja 18</option>
+              <option value="19">Meja 19</option>
+              <option value="20">Meja 20</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Catatan Tambahan</label>
+            <textarea id="notes" name="notes" rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Metode Pembayaran</label>
+            <div class="payment-methods">
+              <div class="payment-method" data-method="cash">
+                <div class="payment-icon">💵</div>
+                <div>Tunai</div>
+              </div>
+              <div class="payment-method" data-method="debit">
+                <div class="payment-icon">💳</div>
+                <div>Kartu Debit</div>
+              </div>
+              <div class="payment-method" data-method="qris">
+                <div class="payment-icon">📱</div>
+                <div>QRIS</div>
+              </div>
+            </div>
+            <input type="hidden" id="payment_method" name="payment_method" value="" required />
+          </div>
+
+          <button type="submit" name="process_order" class="submit-order">
+            Proses Pesanan
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Kafe Express. Semua hak dilindungi.</p>
+      </div>
+    </footer>
+
+    <script>
+      document.querySelectorAll(".payment-method").forEach((method) => {
+        method.addEventListener("click", function () {
+          document.querySelectorAll(".payment-method").forEach((m) => {
+            m.classList.remove("selected");
+          });
+          this.classList.add("selected");
+          document.getElementById("payment_method").value = this.dataset.method;
+        });
+      });
+    </script>
+    </body>
+</html>
+</html>
