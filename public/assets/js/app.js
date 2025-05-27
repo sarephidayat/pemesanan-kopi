@@ -1,4 +1,5 @@
 import { fetchMenu, getCart } from './api.js';
+import { addToCartAPI } from './api.js';
 
 // Render menu berdasarkan kategori
 const renderMenu = async (category, elementId) => {
@@ -16,8 +17,7 @@ const renderMenu = async (category, elementId) => {
         container.innerHTML = menus.map(menu => `
             <div class="menu-item" data-id="${menu.kode_kategori}">
                 <div class="item-image">
-                    <img src="/web/TA/public/assets/image/${menu.image}" alt="${menu.nama}"
-                        onerror="this.onerror=null;this.src='/web/TA/public/assets/image/placeholder.jpg';">
+                    <img src="../image/${menu.image}" alt="${menu.nama}">
                 </div>
                 <div class="item-info">
                     <div class="item-name">${menu.nama}</div>
@@ -25,9 +25,9 @@ const renderMenu = async (category, elementId) => {
                     <div class="item-description">${menu.deskripsi || '-'}</div>
                     <button class="add-to-cart" data-id="${menu.kode_menu}">
                         Tambah ke Pesanan
-                    </button>
+                   </button>
                 </div>
-            </div>
+            </div> 
         `).join('');
 
         // Tambahkan event listener untuk tombol
@@ -42,15 +42,21 @@ const renderMenu = async (category, elementId) => {
 
 // Fungsi untuk menambah item ke keranjang
 const addToCart = async (e) => {
-    const menuId = e.target.getAttribute('data-id');
-    const menuItem = e.target.closest('.menu-item');
+    // const menuId = e.target.getAttribute('data-id');
+    // const menuItem = e.target.closest('.menu-item');
     
     try {
-        // Dapatkan data menu lengkap (dari API atau DOM)
+        // 1. Ambil ID produk
+        const menuId = e.target.getAttribute('data-id');
+        
+        // 2. Ambil elemen menu terkait
+        const menuItem = e.target.closest('.menu-item');
+        
+        // 3. Ambil data lain yang diperlukan
         const menuData = {
-            nama: menuItem.querySelector('.item-name').textContent,
-            harga: parseInt(menuItem.querySelector('.item-price').textContent.replace(/\D/g, '')),
-            image: menuItem.querySelector('.item-image img').src.split('/').pop()
+            name: menuItem.querySelector('.item-name').textContent,
+            price: parseInt(menuItem.querySelector('.item-price').textContent.replace(/\D/g, '')),
+            image: menuItem.querySelector('.item-image img').src
         };
 
         // Tambahkan ke cart
