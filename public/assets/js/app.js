@@ -82,48 +82,50 @@ const addToCart = async (e) => {
 
 // Update tampilan keranjang
 const updateCartUI = () => {
-    const cart = getCart();
+    const cart = getCart(); // Ambil data cart dari localStorage atau memory
     const cartContainer = document.getElementById('cart-container');
     const emptyCartMsg = document.getElementById('empty-cart-msg');
     const checkoutBtn = document.getElementById('checkout-btn');
     const cartTotal = document.getElementById('cart-total');
+    const totalPriceEl = document.getElementById('total-price');
+
+    if (!cartContainer || !emptyCartMsg || !checkoutBtn || !cartTotal || !totalPriceEl) {
+        console.error("Elemen HTML yang dibutuhkan tidak ditemukan.");
+        return;
+    }
 
     if (cart.length === 0) {
         cartContainer.innerHTML = '';
+        cartContainer.style.display = 'none';
         emptyCartMsg.style.display = 'block';
         checkoutBtn.style.display = 'none';
         cartTotal.style.display = 'none';
     } else {
         emptyCartMsg.style.display = 'none';
+        cartContainer.style.display = 'block';
+
+        // Render item ke dalam keranjang
         cartContainer.innerHTML = cart.map(item => `
             <div class="cart-item" data-id="${item.id}">
-                <div class="cart-item-image">
-                    <img src="/image/${item.image}" alt="${item.name}">
-                </div>
-                <div class="cart-item-info">
-                    <div class="cart-item-name">${item.name}</div>
-                    <div class="cart-item-controls">
-                        <button class="quantity-btn minus">-</button>
-                        <span class="quantity">${item.quantity}</span>
-                        <button class="quantity-btn plus">+</button>
-                    </div>
-                    <div class="cart-item-price">Rp ${(item.price * item.quantity).toLocaleString('id-ID')}</div>
-                    <button class="remove-item">×</button>
-                </div>
+                <div class="cart-item-name">${item.name}</div>
+                <div class="cart-item-quantity">Qty: ${item.quantity}</div>
+                <div class="cart-item-price">Rp ${(item.price * item.quantity).toLocaleString('id-ID')}</div>
             </div>
         `).join('');
 
-        // Hitung total
+        // Hitung total harga
         const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        document.getElementById('total-price').textContent = `Rp ${total.toLocaleString('id-ID')}`;
-        
-        // Tambahkan event listeners
-        addCartItemEventListeners();
-        
-        checkoutBtn.style.display = 'block';
+        totalPriceEl.textContent = `Rp ${total.toLocaleString('id-ID')}`;
+
+        // Tampilkan elemen terkait
         cartTotal.style.display = 'flex';
+        checkoutBtn.style.display = 'inline-block';
+
+        // Tambahkan event listener jika ada (optional)
+        // addCartItemEventListeners(); // aktifkan kalau kamu punya fungsi ini
     }
 };
+
 
 const addCartItemEventListeners = () => {
     // Tombol plus

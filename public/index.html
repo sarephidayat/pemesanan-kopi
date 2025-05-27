@@ -46,22 +46,22 @@
       <div class="cart-section">
         <h2>Pesanan Anda</h2>
 
-        <p>Keranjang pesanan Anda kosong.</p>
+        <p id="empty-cart-msg">Keranjang pesanan Anda kosong.</p>
 
-        <div class="cart-items" style="display: none">
-          <div class="cart-item">
-            <div class="cart-item-name"></div>
-            <div class="cart-item-quantity"></div>
-            <div class="cart-item-price"></div>
-          </div>
-        </div>
+        <div id="cart-container" class="cart-items" style="display: none"></div>
 
-        <div class="cart-total" style="display: none">
+        <div id="cart-total" class="cart-total" style="display: none">
           <div>Total</div>
-          <div></div>
+          <div id="total-price">Rp 0</div>
         </div>
 
-        <a href="" class="checkout-btn" style="display: none">Pesan Sekarang</a>
+        <a
+          href="order_details.html"
+          id="checkout-btn"
+          class="checkout-btn"
+          style="display: none"
+          >Pesan Sekarang</a
+        >
       </div>
     </main>
 

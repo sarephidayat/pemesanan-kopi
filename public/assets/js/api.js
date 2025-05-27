@@ -27,8 +27,8 @@ export const addToCartAPI = (menuId, menuData) => {
     } else {
         cart.push({
             id: menuId,
-            name: menuData.nama,
-            price: menuData.harga,
+            name: menuData.name,
+            price: menuData.price,
             quantity: 1,
             image: menuData.image
         });
