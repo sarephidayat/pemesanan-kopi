@@ -2,6 +2,7 @@
 header('Content-Type: application/json');
 require_once __DIR__ . '/../shared/database.php';
 session_start();
+unset($_SESSION['cart']); // Ensure session cart is initialized
 
 $db = new Database();
 $response = ['success' => false];

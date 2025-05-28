@@ -82,7 +82,7 @@ const addToCart = async (e) => {
 
 // Update tampilan keranjang
 const updateCartUI = () => {
-    const cart = getCart(); // Ambil data cart dari localStorage atau memory
+    const cart = getCart();
     const cartContainer = document.getElementById('cart-container');
     const emptyCartMsg = document.getElementById('empty-cart-msg');
     const checkoutBtn = document.getElementById('checkout-btn');
@@ -104,11 +104,15 @@ const updateCartUI = () => {
         emptyCartMsg.style.display = 'none';
         cartContainer.style.display = 'block';
 
-        // Render item ke dalam keranjang
+        // Render item dengan tombol +/-
         cartContainer.innerHTML = cart.map(item => `
             <div class="cart-item" data-id="${item.id}">
                 <div class="cart-item-name">${item.name}</div>
-                <div class="cart-item-quantity">Qty: ${item.quantity}</div>
+                <div class="cart-item-quantity">
+                    <button class="quantity-btn minus" data-id="${item.id}" ${item.quantity <= 1 ? 'disabled' : ''}>-</button>
+                    <span class="quantity-value">${item.quantity}</span>
+                    <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                </div>
                 <div class="cart-item-price">Rp ${(item.price * item.quantity).toLocaleString('id-ID')}</div>
             </div>
         `).join('');
@@ -121,8 +125,8 @@ const updateCartUI = () => {
         cartTotal.style.display = 'flex';
         checkoutBtn.style.display = 'inline-block';
 
-        // Tambahkan event listener jika ada (optional)
-        // addCartItemEventListeners(); // aktifkan kalau kamu punya fungsi ini
+        // Tambahkan event listeners untuk tombol +/-
+        addCartItemEventListeners();
     }
 };
 
@@ -151,22 +155,12 @@ const addCartItemEventListeners = () => {
             
             if (item && item.quantity > 1) {
                 updateCartItemQuantity(itemId, item.quantity - 1);
-            } else {
-                removeFromCart(itemId);
+                updateCartUI();
             }
-            updateCartUI();
-        });
-    });
-    
-    // Tombol hapus
-    document.querySelectorAll('.remove-item').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const itemId = e.target.closest('.cart-item').getAttribute('data-id');
-            removeFromCart(itemId);
-            updateCartUI();
         });
     });
 };
+
 
 // Inisialisasi saat halaman dimuat
 document.addEventListener('DOMContentLoaded', () => {
