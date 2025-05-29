@@ -1,5 +1,5 @@
 <?php
-// koneksi
+// Koneksi ke database
 $conn = mysqli_connect("localhost", "root", "", "db_pemesanan_kopinuri");
 if (!$conn) {
   die("Koneksi gagal: " . mysqli_connect_error());
@@ -10,8 +10,24 @@ if (isset($_POST['submit'])) {
   $email = $_POST['email'];
   $password = $_POST['password'];
 
-  // Simpan data ke database atau lakukan proses lainnya
-  $query = "INSERT INTO tabel_pelanggan (nama, email, password) VALUES ('$nama', '$email', '$password')";
+  // Mengecek apakah email sudah terdaftar
+  $query = "SELECT id_pelanggan FROM tabel_pelanggan WHERE email = '$email'";
+  $result = mysqli_query($conn, $query);
+
+  if (mysqli_num_rows($result) > 0) {
+    $error = "Email sudah terdaftar!";
+  } else {
+    // Simpan ke database
+    $query = "INSERT INTO tabel_pelanggan (nama, email, password) 
+              VALUES ('$nama', '$email', '$password')";
+
+    if (mysqli_query($conn, $query)) {
+      $success = "Pendaftaran berhasil! Anda akan dialihkan ke halaman login.";
+      header("Refresh: 3; url=login.php"); // Redirect setelah 3 detik
+    } else {
+      $error = "Pendaftaran gagal: " . mysqli_error($conn);
+    }
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -21,12 +37,13 @@ if (isset($_POST['submit'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Discounted Labs</title>
-  <link rel="stylesheet" href="assets/css/style-login.css">
+  <link rel="stylesheet" href="assets/css/style-LoginRegister.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-  <div class="container">
+  <div class="container1">
     <!-- Left Side - Illustration -->
     <div class="left-side">
       <div class="logo">
@@ -34,7 +51,7 @@ if (isset($_POST['submit'])) {
       </div>
 
       <div class="illustration">
-        <div class="doctor-container">
+        <div class="doctor-container1">
           <div class="doctor-bg"></div>
           <div class="doctor-avatar">🍵</div>
 
@@ -54,13 +71,23 @@ if (isset($_POST['submit'])) {
 
     <!-- Right Side - Form -->
     <div class="right-side">
-      <div class="form-container">
+      <div class="form-container1">
         <div class="tabs">
           <div class="tab active">Daftar</div>
           <div class="tab">Masuk</div>
         </div>
 
-        <form id="authForm">
+        <form method="post" id="authForm">
+          <?php if (isset($error)): ?>
+            <div class="alert alert-danger mt-3" role="alert">
+              <?php echo $error; ?>
+            </div>
+          <?php endif; ?>
+          <?php if (isset($success)): ?>
+            <div class="alert alert-success mt-3" role="alert">
+              <?php echo $success; ?>
+            </div>
+          <?php endif; ?>
           <div id="signupForm">
             <div class="form-group">
               <label for="nama">Nama</label>
@@ -74,7 +101,7 @@ if (isset($_POST['submit'])) {
 
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" id="password" name="password" placeholder="••••••••" required>
+              <input type="password" id="password" name="password" placeholder="" required>
             </div>
 
             <button type="submit" name="submit" class="submit-btn">Daftar</button>
@@ -99,66 +126,7 @@ if (isset($_POST['submit'])) {
       </div>
     </div>
   </div>
-
-  <script>
-    function switchTab(tab) {
-      const signupTab = document.querySelector('.tab:first-child');
-      const signinTab = document.querySelector('.tab:last-child');
-      const signupForm = document.getElementById('signupForm');
-      const signinForm = document.getElementById('signinForm');
-
-      if (tab === 'signup') {
-        signupTab.classList.add('active');
-        signinTab.classList.remove('active');
-        signupForm.style.display = 'block';
-        signinForm.style.display = 'none';
-      } else {
-        signupTab.classList.remove('active');
-        signinTab.classList.add('active');
-        signupForm.style.display = 'none';
-        signinForm.style.display = 'block';
-      }
-    }
-
-    document.getElementById('authForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const activeTab = document.querySelector('.tab.active').textContent.trim();
-
-      if (activeTab === 'Sign Up') {
-        const fullName = document.getElementById('fullName').value;
-        const email = document.getElementById('email').value;
-
-        if (fullName && email) {
-          alert(`Welcome ${fullName}! Your account has been created successfully.`);
-          this.reset();
-        }
-      } else {
-        const email = document.getElementById('loginEmail').value;
-
-        if (email) {
-          alert(`Welcome back! You have been signed in successfully.`);
-          this.reset();
-        }
-      }
-    });
-
-    // Add entrance animation
-    window.addEventListener('load', function () {
-      const leftSide = document.querySelector('.left-side');
-      const rightSide = document.querySelector('.right-side');
-
-      leftSide.style.transform = 'translateX(-100%)';
-      rightSide.style.transform = 'translateX(100%)';
-
-      setTimeout(() => {
-        leftSide.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-        rightSide.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-        leftSide.style.transform = 'translateX(0)';
-        rightSide.style.transform = 'translateX(0)';
-      }, 100);
-    });
-  </script>
+  <script src="js/register.js"></script>
 </body>
 
 </html>

@@ -11,7 +11,7 @@
             overflow: hidden;
         }
 
-        .container {
+        .container1 {
             display: flex;
             height: 100vh;
         }
@@ -62,7 +62,7 @@
             z-index: 2;
         }
 
-        .doctor-container {
+        .doctor-container1 {
             position: relative;
             width: 300px;
             height: 300px;
@@ -175,7 +175,7 @@
             padding: 40px;
         }
 
-        .form-container {
+        .form-container1 {
             width: 100%;
             max-width: 400px;
         }
@@ -304,7 +304,7 @@
         }
 
         @media (max-width: 768px) {
-            .container {
+            .container1 {
                 flex-direction: column;
             }
 
@@ -317,7 +317,7 @@
                 flex: 0.6;
             }
 
-            .doctor-container {
+            .doctor-container1 {
                 width: 200px;
                 height: 200px;
             }
