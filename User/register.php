@@ -1,31 +1,17 @@
 <?php
+// koneksi
 $conn = mysqli_connect("localhost", "root", "", "db_pemesanan_kopinuri");
 if (!$conn) {
   die("Koneksi gagal: " . mysqli_connect_error());
 }
 
 if (isset($_POST['submit'])) {
-  //ambil data dari form
+  $nama = $_POST['nama'];
   $email = $_POST['email'];
   $password = $_POST['password'];
-  // Cek apakah email dan password sudah diisi
-  if (!empty($email) && !empty($password)) {
-    // Query untuk memeriksa kecocokan email dan password
-    $query = "SELECT * FROM tabel_pelanggan WHERE email='$email' AND password='$password'";
-    $result = mysqli_query($conn, $query);
 
-    // Cek apakah ada hasil yang ditemukan
-    if (mysqli_num_rows($result) > 0) {
-      // Login berhasil, redirect ke halaman utama atau dashboard
-      header("Location: index.php");
-      exit();
-    } else {
-      // Login gagal, tampilkan pesan error
-      echo "<script>alert('Email atau password salah. Silakan coba lagi.');</script>";
-    }
-  } else {
-    echo "<script>alert('Silakan isi semua field.');</script>";
-  }
+  // Simpan data ke database atau lakukan proses lainnya
+  $query = "INSERT INTO tabel_pelanggan (nama, email, password) VALUES ('$nama', '$email', '$password')";
 }
 ?>
 <!DOCTYPE html>
@@ -36,7 +22,6 @@ if (isset($_POST['submit'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Discounted Labs</title>
   <link rel="stylesheet" href="assets/css/style-login.css">
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
@@ -71,12 +56,17 @@ if (isset($_POST['submit'])) {
     <div class="right-side">
       <div class="form-container">
         <div class="tabs">
-          <div class="tab">Daftar</div>
-          <div class="tab active">Masuk</div>
+          <div class="tab active">Daftar</div>
+          <div class="tab">Masuk</div>
         </div>
 
-        <form method="post" id="authForm">
-          <div id="signinForm">
+        <form id="authForm">
+          <div id="signupForm">
+            <div class="form-group">
+              <label for="nama">Nama</label>
+              <input type="text" id="nama" name="nama" placeholder="Kopi Nuri" required>
+            </div>
+
             <div class="form-group">
               <label for="email">Email</label>
               <input type="email" id="email" name="email" placeholder="cafekopinuri@nuri.ac.id" required>
@@ -87,11 +77,12 @@ if (isset($_POST['submit'])) {
               <input type="password" id="password" name="password" placeholder="••••••••" required>
             </div>
 
-            <button type="submit" name="submit" class="submit-btn">Masuk</button>
+            <button type="submit" name="submit" class="submit-btn">Daftar</button>
 
             <div class="login-link">
-              Belum punya akun? <a href="register.php">Daftar</a>
+              Sudah Mempunyai Akun? <a href="login.php">Masuk</a>
             </div>
+          </div>
         </form>
 
         <div class="social-icons">
