@@ -131,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php while ($row = mysqli_fetch_assoc($result_makanan)): ?>
                     <div class="menu-item">
                         <div class="item-image">
-                            <img src="../image/<?php echo htmlspecialchars($row['image']); ?>"
+                            <img src="image/<?php echo htmlspecialchars($row['image']); ?>"
                                 alt="<?php echo htmlspecialchars($row['nama']); ?>">
                         </div>
                         <div class="item-info">
@@ -163,7 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php while ($row = mysqli_fetch_assoc($result_minuman)): ?>
                     <div class="menu-item">
                         <div class="item-image">
-                            <img src="../image/<?php echo htmlspecialchars($row['image']); ?>"
+                            <img src="image/<?php echo htmlspecialchars($row['image']); ?>"
                                 alt="<?php echo htmlspecialchars($row['nama']); ?>">
                         </div>
                         <div class="item-info">
@@ -195,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php while ($row = mysqli_fetch_assoc($result_dessert)): ?>
                     <div class="menu-item">
                         <div class="item-image">
-                            <img src="../image/<?php echo htmlspecialchars($row['image']); ?>"
+                            <img src="image/<?php echo htmlspecialchars($row['image']); ?>"
                                 alt="<?php echo htmlspecialchars($row['nama']); ?>">
                         </div>
                         <div class="item-info">
