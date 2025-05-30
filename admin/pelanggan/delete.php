@@ -2,9 +2,9 @@
 session_start();
 require_once '../helper/connection.php';
 
-$nidn = $_GET['nidn'];
+$id = $_GET['id_pelanggan'];
 
-$result = mysqli_query($connection, "DELETE FROM dosen WHERE nidn='$nidn'");
+$result = mysqli_query($connection, "DELETE FROM id_pelanggan WHERE id_pelanggan='$id'");
 
 if (mysqli_affected_rows($connection) > 0) {
   $_SESSION['info'] = [

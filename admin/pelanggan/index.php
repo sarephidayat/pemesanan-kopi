@@ -2,13 +2,12 @@
 require_once '../layout/_top.php';
 require_once '../helper/connection.php';
 
-$result = mysqli_query($connection, "SELECT * FROM dosen");
+$result = mysqli_query($connection, "SELECT * FROM tabel_pelanggan");
 ?>
 
 <section class="section">
   <div class="section-header d-flex justify-content-between">
     <h1>List Dosen</h1>
-    <a href="./create.php" class="btn btn-primary">Tambah Data</a>
   </div>
   <div class="row">
     <div class="col-12">
@@ -18,34 +17,32 @@ $result = mysqli_query($connection, "SELECT * FROM dosen");
             <table class="table table-hover table-striped w-100" id="table-1">
               <thead>
                 <tr>
-                  <th>NIDN</th>
-                  <th>Nama dosen</th>
-                  <th>Jenis Kelamin</th>
-                  <th>Alamat</th>
+                  <th>No</th>
+                  <th>ID Pelanggan</th>
+                  <th>Nama pelanggan</th>
+                  <th>Email</th>
                   <th style="width: 150">Aksi</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
-                while ($data = mysqli_fetch_array($result)) :
-                ?>
-
+                $no = 1;
+                while ($data = mysqli_fetch_array($result)):
+                  ?>
                   <tr>
-                    <td><?= $data['nidn'] ?></td>
-                    <td><?= $data['nama_dosen'] ?></td>
-                    <td><?= $data['jenkel_dosen'] ?></td>
-                    <td><?= $data['alamat_dosen'] ?></td>
+                    <td><?= $no++ ?></td>
+                    <td><?= $data['id_pelanggan'] ?></td>
+                    <td><?= $data['nama'] ?></td>
+                    <td><?= $data['email'] ?></td>
                     <td>
-                      <a class="btn btn-sm btn-danger mb-md-0 mb-1" href="delete.php?nidn=<?= $data['nidn'] ?>">
+                      <a class="btn btn-sm btn-danger mb-md-0 mb-1"
+                        href="delete.php?id_pelanggan=<?= $data['id_pelanggan'] ?>">
                         <i class="fas fa-trash fa-fw"></i>
-                      </a>
-                      <a class="btn btn-sm btn-info" href="edit.php?nidn=<?= $data['nidn'] ?>">
-                        <i class="fas fa-edit fa-fw"></i>
                       </a>
                     </td>
                   </tr>
 
-                <?php
+                  <?php
                 endwhile;
                 ?>
               </tbody>
@@ -61,9 +58,9 @@ require_once '../layout/_bottom.php';
 ?>
 <!-- Page Specific JS File -->
 <?php
-if (isset($_SESSION['info'])) :
+if (isset($_SESSION['info'])):
   if ($_SESSION['info']['status'] == 'success') {
-?>
+    ?>
     <script>
       iziToast.success({
         title: 'Sukses',
@@ -72,9 +69,9 @@ if (isset($_SESSION['info'])) :
         timeout: 5000
       });
     </script>
-  <?php
+    <?php
   } else {
-  ?>
+    ?>
     <script>
       iziToast.error({
         title: 'Gagal',
@@ -83,7 +80,7 @@ if (isset($_SESSION['info'])) :
         position: 'topCenter'
       });
     </script>
-<?php
+    <?php
   }
 
   unset($_SESSION['info']);

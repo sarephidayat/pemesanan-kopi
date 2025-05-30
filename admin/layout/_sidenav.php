@@ -2,7 +2,7 @@
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
       <a href="index.php">
-        <img src="../assets/img/logo.png" alt="logo" width="150">
+        <img src="../assets/img/logo_kopinuri-removebg-preview.png" alt="logo" width="80">
       </a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
@@ -17,7 +17,6 @@
           <span>Pelanggan</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="../pelanggan/index.php">List</a></li>
-          <li><a class="nav-link" href="../pelanggan/create.php">Tambah Data</a></li>
         </ul>
       </li>
       <li class="dropdown">
