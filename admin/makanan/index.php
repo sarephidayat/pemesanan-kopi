@@ -7,7 +7,7 @@ $result = mysqli_query($connection, "SELECT * FROM tabel_menu WHERE kode_kategor
 
 <section class="section">
   <div class="section-header d-flex justify-content-between">
-    <h1>List Dosen</h1>
+    <h1>List Menu Makanan</h1>
     <a href="./create.php" class="btn btn-primary">Tambah Data</a>
   </div>
   <div class="row">

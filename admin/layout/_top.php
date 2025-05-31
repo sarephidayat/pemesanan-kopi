@@ -38,7 +38,7 @@ isLogin();
   <link rel="stylesheet" href="../assets/css/components.css">
 </head>
 
-<body>
+<body onload="dataMenu(); mostMenu(); leastMenu();">
   <div id="app">
     <div class="main-wrapper main-wrapper-1">
       <?php

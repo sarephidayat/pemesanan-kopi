@@ -8,7 +8,7 @@ $query = mysqli_query($connection, "SELECT * FROM tabel_menu WHERE kode_menu='$k
 
 <section class="section">
   <div class="section-header d-flex justify-content-between">
-    <h1>Ubah Data Dosen</h1>
+    <h1>Ubah Data Menu Makanan</h1>
     <a href="./index.php" class="btn btn-light">Kembali</a>
   </div>
   <div class="row">

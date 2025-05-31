@@ -2,12 +2,12 @@
 require_once '../layout/_top.php';
 require_once '../helper/connection.php';
 
-$result = mysqli_query($connection, "SELECT * FROM dosen");
+$result = mysqli_query($connection, "SELECT * FROM tabel_menu WHERE kode_kategori='DST-7294'");
 ?>
 
 <section class="section">
   <div class="section-header d-flex justify-content-between">
-    <h1>List Dosen</h1>
+    <h1>List Menu Dessert</h1>
     <a href="./create.php" class="btn btn-primary">Tambah Data</a>
   </div>
   <div class="row">
@@ -18,34 +18,39 @@ $result = mysqli_query($connection, "SELECT * FROM dosen");
             <table class="table table-hover table-striped w-100" id="table-1">
               <thead>
                 <tr>
-                  <th>NIDN</th>
-                  <th>Nama dosen</th>
-                  <th>Jenis Kelamin</th>
-                  <th>Alamat</th>
+                  <th>Kode Menu</th>
+                  <th>Nama</th>
+                  <th>Harga</th>
+                  <th>Deskripsi</th>
+                  <th>Stok</th>
+                  <th>Gambar</th>
                   <th style="width: 150">Aksi</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
-                while ($data = mysqli_fetch_array($result)) :
-                ?>
+                while ($data = mysqli_fetch_array($result)):
+                  ?>
 
                   <tr>
-                    <td><?= $data['nidn'] ?></td>
-                    <td><?= $data['nama_dosen'] ?></td>
-                    <td><?= $data['jenkel_dosen'] ?></td>
-                    <td><?= $data['alamat_dosen'] ?></td>
+                    <td><?= $data['kode_menu'] ?></td>
+                    <td><?= $data['nama'] ?></td>
+                    <td><?= $data['harga'] ?></td>
+                    <td><?= $data['deskripsi'] ?></td>
+                    <td><?= $data['stok'] ?></td>
+                    <td><img style="width: 60px; height: 60px;" src="../assets/img/<?= $data['image'] ?>"
+                        alt="<?= $data['image'] ?>"></td>
                     <td>
-                      <a class="btn btn-sm btn-danger mb-md-0 mb-1" href="delete.php?nidn=<?= $data['nidn'] ?>">
+                      <a class="btn btn-sm btn-danger mb-md-0 mb-1" href="delete.php?kode_menu=<?= $data['kode_menu'] ?>">
                         <i class="fas fa-trash fa-fw"></i>
                       </a>
-                      <a class="btn btn-sm btn-info" href="edit.php?nidn=<?= $data['nidn'] ?>">
+                      <a class="btn btn-sm btn-info" href="edit.php?kode_menu=<?= $data['kode_menu'] ?>">
                         <i class="fas fa-edit fa-fw"></i>
                       </a>
                     </td>
                   </tr>
 
-                <?php
+                  <?php
                 endwhile;
                 ?>
               </tbody>
@@ -61,9 +66,9 @@ require_once '../layout/_bottom.php';
 ?>
 <!-- Page Specific JS File -->
 <?php
-if (isset($_SESSION['info'])) :
+if (isset($_SESSION['info'])):
   if ($_SESSION['info']['status'] == 'success') {
-?>
+    ?>
     <script>
       iziToast.success({
         title: 'Sukses',
@@ -72,9 +77,9 @@ if (isset($_SESSION['info'])) :
         timeout: 5000
       });
     </script>
-  <?php
+    <?php
   } else {
-  ?>
+    ?>
     <script>
       iziToast.error({
         title: 'Gagal',
@@ -83,7 +88,7 @@ if (isset($_SESSION['info'])) :
         position: 'topCenter'
       });
     </script>
-<?php
+    <?php
   }
 
   unset($_SESSION['info']);

@@ -11,7 +11,8 @@
     <ul class="sidebar-menu">
       <li class="menu-header">Dashboard</li>
       <li><a class="nav-link" href="../"><i class="fas fa-fire"></i> <span>Home</span></a></li>
-      <li class="menu-header">Main Feature</li>
+      <!-- CRUD Menu -->
+      <li class="menu-header">Management Menu</li>
       <li class="dropdown">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
           <span>Pelanggan</span></a>
@@ -42,6 +43,14 @@
           <li><a class="nav-link" href="../dessert/index.php">List</a></li>
           <li><a class="nav-link" href="../dessert/create.php">Tambah Data</a></li>
         </ul>
+      </li>
+
+      <!-- Profile -->
+      <li class="menu-header">Profile</li>
+      <li class="dropdown">
+        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+          <span>Profile</span></a>
+
       </li>
     </ul>
   </aside>
