@@ -34,33 +34,31 @@ if (!$result_detail) {
                             <i class="bi bi-info-circle me-2 text-primary"></i>Informasi Pesanan
                         </h5>
                         <div class="order-info">
-                            <?php while ($order_data = $pesanan) ?>
                             <div class="info-item">
                                 <span><i class="bi bi-hash me-2"></i>ID Pesanan:</span>
-                                <strong><?php echo $order_data['id_pesanan']; ?></strong>
+                                <strong><?php echo $pesanan['id_pesanan']; ?></strong>
                             </div>
                             <div class="info-item">
                                 <span><i class="bi bi-person me-2"></i>Nama Pelanggan:</span>
-                                <strong><?php echo htmlspecialchars($order_data['nama']); ?></strong>
+                                <strong><?php echo htmlspecialchars($pesanan['nama']); ?></strong>
                             </div>
                             <div class="info-item">
                                 <span><i class="bi bi-table me-2"></i>Nomor Meja:</span>
-                                <strong>Meja <?php echo $order_data['nomor_meja']; ?></strong>
+                                <strong>Meja <?php echo $pesanan['nomor_meja']; ?></strong>
                             </div>
                             <div class="info-item">
                                 <span><i class="bi bi-calendar me-2"></i>Tanggal Pesan:</span>
-                                <strong><?php echo date('d/m/Y H:i', strtotime($order_data['tanggal_pesan'])); ?></strong>
+                                <strong><?php echo date('d/m/Y H:i', strtotime($pesanan['tanggal_pesan'])); ?></strong>
                             </div>
                             <div class="info-item">
                                 <span><i class="bi bi-credit-card me-2"></i>Metode Pembayaran:</span>
-                                <strong class="text-uppercase"><?php echo $order_data['metode_pembayaran']; ?></strong>
+                                <strong class="text-uppercase"><?php echo $pesanan['metode_pembayaran']; ?></strong>
                             </div>
-                            <?php if (!empty($order_data['catatan'])): ?>
+                            <?php if (!empty($pesanan['catatan'])): ?>
                                 <div class="info-item">
                                     <span><i class="bi bi-chat-text me-2"></i>Catatan:</span>
-                                    <em>"<?php echo htmlspecialchars($order_data['catatan']); ?>"</em>
+                                    <em>"<?php echo htmlspecialchars($pesanan['catatan']); ?>"</em>
                                 </div>
-                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
