@@ -1,7 +1,7 @@
 </div>
 <footer class="main-footer">
   <div class="footer-left">
-    UIN WS</a>
+    &copy; 2025 Kopi Nuri. Semua hak dilindungi.</a>
   </div>
   <div class="footer-right">
 

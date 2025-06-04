@@ -2,17 +2,17 @@
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
       <a href="index.php">
-        <img src="../assets/img/logo_kopinuri-removebg-preview.png" alt="logo" width="80">
+        <img src="../assets/img/logo-removebg.png" alt="logo" width="80">
       </a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
       <a href="index.php">EF</a>
     </div>
     <ul class="sidebar-menu">
-      <li class="menu-header">Dashboard</li>
-      <li><a class="nav-link" href="../"><i class="fas fa-fire"></i> <span>Home</span></a></li>
+      <li class="menu-header"><b>Dashboard</b></li>
+      <li><a class="nav-link" href="../"><i class="fas fa-fire"></i> <span><b>Home</b></span></a></li>
       <!-- CRUD Menu -->
-      <li class="menu-header">Management Menu</li>
+      <li class="menu-header"><b>Management Menu</b></li>
       <li class="dropdown">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
           <span>Pelanggan</span></a>
@@ -45,12 +45,24 @@
         </ul>
       </li>
 
+      <!-- Pemesanan -->
+      <li class="menu-header"><b>Daftar Pemesanan</b></li>
+      <li class="dropdown">
+        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+          <span>Daftar Pemesanan</span></a>
+        <ul class="dropdown-menu">
+          <li><a class="nav-link" href="../pemesanan/index.php">Lihat Daftar Pemesanan</a></li>
+        </ul>
+      </li>
+
       <!-- Profile -->
-      <li class="menu-header">Profile</li>
+      <li class="menu-header"><b>Profile</b></li>
       <li class="dropdown">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
           <span>Profile</span></a>
-
+        <ul class="dropdown-menu">
+          <li><a class="nav-link" href="../profile/index.php">Lihat Profile</a></li>
+        </ul>
       </li>
     </ul>
   </aside>

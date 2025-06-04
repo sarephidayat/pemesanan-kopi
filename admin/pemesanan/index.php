@@ -2,13 +2,12 @@
 require_once '../layout/_top.php';
 require_once '../helper/connection.php';
 
-$result = mysqli_query($connection, "SELECT * FROM tabel_menu WHERE kode_kategori='MNM-3821'");
+$result = mysqli_query($connection, "SELECT * FROM tabel_pesan");
 ?>
 
 <section class="section">
   <div class="section-header d-flex justify-content-between">
-    <h1>List Menu Minuman</h1>
-    <a href="./create.php" class="btn btn-primary custom-login-btn" style="background-color: #5c3d2e;">Tambah Data</a>
+    <h1>List Pemesanan</h1>
   </div>
   <div class="row">
     <div class="col-12">
@@ -18,12 +17,14 @@ $result = mysqli_query($connection, "SELECT * FROM tabel_menu WHERE kode_kategor
             <table class="table table-hover table-striped w-100" id="table-1">
               <thead>
                 <tr>
-                  <th>Kode Menu</th>
+                  <th>Id Pesanan</th>
                   <th>Nama</th>
-                  <th>Harga</th>
-                  <th>Deskripsi</th>
-                  <th>Stok</th>
-                  <th>Gambar</th>
+                  <th>Total Harga</th>
+                  <th style="width: 10px;">Nomor Meja</th>
+                  <th>Tanggal Pesan</th>
+                  <th style="width: 10px;">Metode Pembayaran</th>
+                  <th>Bukti Pembayaran</th>
+                  <th style="width: 150">Order Detail</th>
                   <th style="width: 150">Aksi</th>
                 </tr>
               </thead>
@@ -33,19 +34,23 @@ $result = mysqli_query($connection, "SELECT * FROM tabel_menu WHERE kode_kategor
                   ?>
 
                   <tr>
-                    <td><?= $data['kode_menu'] ?></td>
+                    <td><?= $data['id_pesanan'] ?></td>
                     <td><?= $data['nama'] ?></td>
-                    <td><?= $data['harga'] ?></td>
-                    <td><?= $data['deskripsi'] ?></td>
-                    <td><?= $data['stok'] ?></td>
-                    <td><img style="width: 100px; height: 100px;" src="../assets/img/<?= $data['image'] ?>"
-                        alt="<?= $data['image'] ?>"></td>
+                    <td><?= $data['total_harga'] ?></td>
+                    <td><?= $data['nomor_meja'] ?></td>
+                    <td><?= $data['tanggal_pesan'] ?></td>
+                    <td><?= $data['metode_pembayaran'] ?></td>
+                    <td><img style="width: 100px; height: auto;"
+                        src="../../user/uploads/bukti-pembayaran/<?= $data['bukti_pembayaran'] ?>"
+                        alt="<?= $data['bukti_pembayaran'] ?>"></td>
                     <td>
-                      <a class="btn btn-sm btn-danger mb-md-0 mb-1" href="delete.php?kode_menu=<?= $data['kode_menu'] ?>">
-                        <i class="fas fa-trash fa-fw"></i>
+                      <a class="btn btn-sm btn-info mb-md-0 mb-1"
+                        href="detail_pemesanan.php?id_pesanan=<?= $data['id_pesanan'] ?>">Detail
                       </a>
-                      <a class="btn btn-sm btn-info" href="edit.php?kode_menu=<?= $data['kode_menu'] ?>">
-                        <i class="fas fa-edit fa-fw"></i>
+                    </td>
+                    <td>
+                      <a class="btn btn-sm btn-danger mb-md-0 mb-1"
+                        href="delete.php?kode_menu=<?= $data['id_pesanan'] ?>">Batalkan
                       </a>
                     </td>
                   </tr>

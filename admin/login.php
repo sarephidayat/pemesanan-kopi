@@ -42,6 +42,14 @@ if (isset($_POST['submit'])) {
   <!-- Template CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/components.css">
+  <style>
+    .custom-login-btn:hover {
+      background-color: #6B4226 !important;
+      /* warna cokelat saat hover */
+    }
+  </style>
+
+
 </head>
 
 <body>
@@ -51,12 +59,12 @@ if (isset($_POST['submit'])) {
         <div class="row">
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
             <div class="login-brand">
-              <img src="assets/img/logo_kopinuri-removebg-preview.png" alt="logo" width="120">
+              <img src="assets/img/logo-removebg.png" alt="logo" width="120">
             </div>
 
-            <div class="card card-primary">
+            <div class="card card-primary" style="border-top: 2px solid #4B2E1C;">
               <div class="card-header">
-                <h4>Login Admin</h4>
+                <h4 style="color: #4B2E1C;">Login Admin</h4>
               </div>
 
               <div class="card-body">
@@ -64,7 +72,8 @@ if (isset($_POST['submit'])) {
                   <div class="form-group">
                     <label for="username">Username</label>
                     <input id="username" type="text" class="form-control" name="username" tabindex="1" required
-                      autofocus>
+                      autofocus
+                      style="border: 1px solid rgba(75, 46, 28, 0.1); box-shadow: 0 0px 1px rgba(75, 46, 28, 0.3);">
                     <div class="invalid-feedback">
                       Mohon isi username
                     </div>
@@ -74,7 +83,9 @@ if (isset($_POST['submit'])) {
                     <div class="d-block">
                       <label for="password" class="control-label">Password</label>
                     </div>
-                    <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                    <input id="password" type="password" class="form-control" name="password" tabindex="2"
+                      style="border: 1px solid rgba(75, 46, 28, 0.1); box-shadow: 0 0px 1px rgba(75, 46, 28, 0.3);"
+                      required>
                     <div class="invalid-feedback">
                       Mohon isi kata sandi
                     </div>
@@ -88,7 +99,8 @@ if (isset($_POST['submit'])) {
                   </div> -->
 
                   <div class="form-group">
-                    <button name="submit" type="submit" class="btn btn-primary btn-lg btn-block" tabindex="3">
+                    <button name="submit" type="submit" class="btn btn-primary btn-lg btn-block custom-login-btn"
+                      style="background-color: #4B2E1C;" tabindex="3">
                       Login
                     </button>
                   </div>
@@ -102,7 +114,7 @@ if (isset($_POST['submit'])) {
               </div>
             </div>
             <div class="simple-footer">
-              UIN WS
+              &copy; 2025 Kopi Nuri. Semua hak dilindungi.
             </div>
           </div>
         </div>

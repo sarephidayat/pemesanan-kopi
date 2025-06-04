@@ -1,0 +1,9 @@
+.custom-login-btn {
+    background-color: #4B2E1C;
+    box-shadow: none !important;
+    border: none;
+  }
+.custom-login-btn:hover {
+      background-color: #6B4226 !important;
+      /* warna cokelat saat hover */
+    }

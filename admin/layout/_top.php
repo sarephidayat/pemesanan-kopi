@@ -36,6 +36,7 @@ isLogin();
   <!-- Template CSS -->
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/tambahan.css">
 </head>
 
 <body onload="dataMenu(); mostMenu(); leastMenu();">

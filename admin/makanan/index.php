@@ -8,7 +8,7 @@ $result = mysqli_query($connection, "SELECT * FROM tabel_menu WHERE kode_kategor
 <section class="section">
   <div class="section-header d-flex justify-content-between">
     <h1>List Menu Makanan</h1>
-    <a href="./create.php" class="btn btn-primary">Tambah Data</a>
+    <a href="./create.php" class="btn btn-primary custom-login-btn" style="background-color: #5c3d2e;">Tambah Data</a>
   </div>
   <div class="row">
     <div class="col-12">
@@ -38,7 +38,7 @@ $result = mysqli_query($connection, "SELECT * FROM tabel_menu WHERE kode_kategor
                     <td><?= $data['harga'] ?></td>
                     <td><?= $data['deskripsi'] ?></td>
                     <td><?= $data['stok'] ?></td>
-                    <td><img style="width: 60px; height: 60px;" src="../assets/img/<?= $data['image'] ?>"
+                    <td><img style="width:  100px; height:  100px;" src="../assets/img/<?= $data['image'] ?>"
                         alt="<?= $data['image'] ?>"></td>
                     <td>
                       <a class="btn btn-sm btn-danger mb-md-0 mb-1" href="delete.php?kode_menu=<?= $data['kode_menu'] ?>">

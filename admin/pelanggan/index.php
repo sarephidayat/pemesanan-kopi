@@ -6,7 +6,7 @@ $result = mysqli_query($connection, "SELECT * FROM tabel_pelanggan");
 ?>
 
 <section class="section">
-  <div class="section-header d-flex justify-content-between">
+  <div class="section-header d-flex justify-content-between" style="background-color: #F5E9DA;">
     <h1>List Dosen</h1>
   </div>
   <div class="row">

@@ -6,7 +6,7 @@ require_once '../helper/connection.php';
 <section class="section">
   <div class="section-header d-flex justify-content-between">
     <h1>Tambah Menu Minuman</h1>
-    <a href="./index.php" class="btn btn-light">Kembali</a>
+    <a href="./index.php" class="btn btn-primary custom-login-btn" style="background-color: #5c3d2e;">Kembali</a>
   </div>
   <div class="row">
     <div class="col-12">
