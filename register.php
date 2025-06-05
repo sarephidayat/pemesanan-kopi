@@ -97,6 +97,15 @@ if (isset($_POST['submit'])) {
                   </div>
 
                   <div class="form-group">
+                    <label for="username">Email</label>
+                    <input id="email" type="text" class="form-control" name="email" tabindex="1" required autofocus
+                      style="border: 1px solid rgba(75, 46, 28, 0.1); box-shadow: 0 0px 1px rgba(75, 46, 28, 0.3);">
+                    <div class="invalid-feedback">
+                      Mohon isi Email
+                    </div>
+                  </div>
+
+                  <div class="form-group">
                     <label for="username">Username</label>
                     <input id="username" type="text" class="form-control" name="username" tabindex="1" required
                       autofocus

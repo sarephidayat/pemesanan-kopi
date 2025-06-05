@@ -126,6 +126,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="logo">
                 <h1>Kopi Ngelak</h1>
             </div>
+            <div>
+                <a href="logout.php" class="back-link" style="font-size: 30px;"><i class="bi bi-box-arrow-left"></i></a>
+            </div>
         </div>
     </header>
 
