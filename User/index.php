@@ -1,9 +1,8 @@
 <?php
 session_start();
-if (isset($_SESSION['login'])) {
-  header('Location: index.php');
-} else {
-  header('Location: ../login.php');
+if (!isset($_SESSION['login'])) {
+    header('Location: ../login.php');
+    exit();
 }
 
 $conn = mysqli_connect("localhost", "root", "", "db_pemesanan_kopinuri");
@@ -127,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h1>Kopi Ngelak</h1>
             </div>
             <div>
-                <a href="logout.php" class="back-link" style="font-size: 30px;"><i class="bi bi-box-arrow-left"></i></a>
+                <a href="logout.php" class="back-link" style="font-size: 30px;"><i class="bi bi-box-arrow-left" style="color: white;"></i></a>
             </div>
         </div>
     </header>
