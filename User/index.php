@@ -1,5 +1,11 @@
 <?php
 session_start();
+if (isset($_SESSION['login'])) {
+  header('Location: index.php');
+} else {
+  header('Location: ../login.php');
+}
+
 $conn = mysqli_connect("localhost", "root", "", "db_pemesanan_kopinuri");
 if (!$conn) {
     die("Koneksi gagal: " . mysqli_connect_error());

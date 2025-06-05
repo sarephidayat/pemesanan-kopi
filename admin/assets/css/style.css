@@ -288,6 +288,7 @@ select.form-control:not([size]):not([multiple]) {
   top: 0;
   left: 0; }
 
+
 .selectgroup-button {
   background-color: #fdfdff;
   border-color: #e4e6fc;
@@ -1965,6 +1966,13 @@ a.bb {
   text-decoration: none;
   border-bottom: 1px solid #6777ef;
   padding-bottom: 1px; }
+
+#bg-login {
+  background-image: url('../../../ngelak.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 .form-divider {
   display: inline-block;

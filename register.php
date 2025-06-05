@@ -1,23 +1,33 @@
 <?php
-require_once 'helper/connection.php';
-session_start();
+// Koneksi ke database
+$conn = mysqli_connect("localhost", "root", "", "db_pemesanan_kopinuri");
+if (!$conn) {
+  die("Koneksi gagal: " . mysqli_connect_error());
+}
+
 if (isset($_POST['submit'])) {
+  $nama = $_POST['nama'];
   $username = $_POST['username'];
+  $email = $_POST['email'];
   $password = $_POST['password'];
 
-  //$sql = "SELECT * FROM login WHERE username='$username' and password='$password' LIMIT 1";
-  $sql = "SELECT * FROM tabel_admin WHERE username='$username'";
+  // Mengecek apakah email sudah terdaftar
+  $query = "SELECT id_pelanggan FROM tabel_pelanggan WHERE email = '$email'";
+  $result = mysqli_query($conn, $query);
 
-  $result = mysqli_query($connection, $sql);
-  $row = mysqli_fetch_assoc($result);
-  var_dump($row);
-
-  if ((mysqli_num_rows($result) === 1) && ($password == $row['password'])) {
-    $_SESSION['login'] = $row;
-    header('Location: index.php');
-    exit;
+  if (mysqli_num_rows($result) > 0) {
+    $error = "Email sudah terdaftar!";
   } else {
-    $error = true;
+    // Simpan ke database
+    $query = "INSERT INTO tabel_pelanggan (nama, username, email, password) 
+              VALUES ('$nama', '$username','$email', '$password')";
+
+    if (mysqli_query($conn, $query)) {
+      $success = "Pendaftaran berhasil! Anda akan dialihkan ke halaman login.";
+      header("Refresh: 3; url=login.php"); // Redirect setelah 3 detik
+    } else {
+      $error = "Pendaftaran gagal: " . mysqli_error($conn);
+    }
   }
 }
 ?>
@@ -37,11 +47,11 @@ if (isset($_POST['submit'])) {
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
   <!-- CSS Libraries -->
-  <link rel="stylesheet" href="assets/modules/bootstrap-social/bootstrap-social.css">
+  <link rel="stylesheet" href="admin/assets/modules/bootstrap-social/bootstrap-social.css">
 
   <!-- Template CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="admin/assets/css/style.css">
+  <link rel="stylesheet" href="admin/assets/css/components.css">
   <style>
     .custom-login-btn:hover {
       background-color: #6B4226 !important;
@@ -52,23 +62,40 @@ if (isset($_POST['submit'])) {
 
 </head>
 
-<body>
+<body style="background-color: #F5E9DA;
+  background-position: center;
+  background-repeat: no-repeat;">
   <div id="app">
     <section class="section">
       <div class="container mt-5">
         <div class="row">
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
             <div class="login-brand">
-              <img src="assets/img/logo-removebg.png" alt="logo" width="120">
+              <img src="admin/assets/img/logo-removebg.png" alt="logo" width="120">
             </div>
 
-            <div class="card card-primary" style="border-top: 2px solid #4B2E1C;">
+            <div class="card card-primary" style="
+                border-top: 2px solid #4B2E1C;
+                background-color: rgba(255, 255, 255, 0.5);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            ">
               <div class="card-header">
-                <h4 style="color: #4B2E1C;">Login Admin</h4>
+                <h4 style="color: #4B2E1C;">Register</h4>
               </div>
 
               <div class="card-body">
                 <form method="POST" action="" class="needs-validation" novalidate="">
+                  <div class="form-group">
+                    <label for="username">Nama</label>
+                    <input id="nama" type="text" class="form-control" name="nama" tabindex="1" required autofocus
+                      style="border: 1px solid rgba(75, 46, 28, 0.1); box-shadow: 0 0px 1px rgba(75, 46, 28, 0.3);">
+                    <div class="invalid-feedback">
+                      Mohon isi Nama
+                    </div>
+                  </div>
+
                   <div class="form-group">
                     <label for="username">Username</label>
                     <input id="username" type="text" class="form-control" name="username" tabindex="1" required
@@ -104,6 +131,9 @@ if (isset($_POST['submit'])) {
                       Login
                     </button>
                   </div>
+                  <div class="login-link" style="text-align: center;">
+                    Sudah mempunyai akun? <a href="login.php">Login</a>
+                  </div>
                 </form>
                 <?php
                 // var_dump($error);
@@ -114,7 +144,7 @@ if (isset($_POST['submit'])) {
               </div>
             </div>
             <div class="simple-footer">
-              &copy; 2025 Kopi Nuri. Semua hak dilindungi.
+              &copy; 2025 Kopi Ngelak. Semua hak dilindungi.
             </div>
           </div>
         </div>
