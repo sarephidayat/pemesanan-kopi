@@ -107,11 +107,8 @@ function formatRupiah($angka)
                                 case 'cash':
                                     echo 'Tunai';
                                     break;
-                                case 'transfer':
-                                    echo 'Transfer Bank';
-                                    break;
-                                case 'e-wallet':
-                                    echo 'E-Wallet';
+                                case 'qris':
+                                    echo 'Qris';
                                     break;
                                 default:
                                     echo htmlspecialchars($pesanan['metode_pembayaran']);
@@ -128,7 +125,12 @@ function formatRupiah($angka)
 
                     <h3>Item Pesanan</h3>
                     <div class="order-items">
-                        <?php while ($item = mysqli_fetch_assoc($result_detail)): ?>
+                        <?php
+                        $totalSubtotal = 0; // Untuk menghitung total seluruh subtotal
+                        mysqli_data_seek($result_detail, 0); // Kembalikan pointer ke awal jika sudah diakses sebelumnya
+                        while ($item = mysqli_fetch_assoc($result_detail)):
+                            $totalSubtotal += $item['subtotal'];
+                            ?>
                             <div class="order-item">
                                 <div class="item-name">
                                     <?php echo htmlspecialchars($item['nama'] ?? 'Menu tidak ditemukan'); ?>
@@ -142,23 +144,25 @@ function formatRupiah($angka)
                     </div>
 
                     <div class="order-summary">
-                        <?php foreach ($result_detail as $item): ?>
-                            <div class="summary-row">
-                                <div>Subtotal</div>
-                                <div><?php echo formatRupiah($item['subtotal']); ?></div>
-                            </div>
-                            <div class="summary-row">
-                                <div>Pajak (10%)</div>
-                                <?php $pajak = $item['subtotal'] * 0.1; ?>
-                                <div><?php echo formatRupiah($pajak); ?></div>
-                            </div>
-                            <div class="summary-row total">
-                                <div>Total</div>
-                                <div><?php echo formatRupiah($item['subtotal'] + $pajak); ?></div>
-                            </div>
-                        <?php endforeach; ?>
+                        <?php
+                        $pajak = $totalSubtotal * 0.10;
+                        $total = $totalSubtotal + $pajak;
+                        ?>
+                        <div class="summary-row">
+                            <div>Subtotal</div>
+                            <div><?php echo formatRupiah($totalSubtotal); ?></div>
+                        </div>
+                        <div class="summary-row">
+                            <div>Pajak (10%)</div>
+                            <div><?php echo formatRupiah($pajak); ?></div>
+                        </div>
+                        <div class="summary-row total">
+                            <div>Total</div>
+                            <div><?php echo formatRupiah($total); ?></div>
+                        </div>
                     </div>
                 </div>
+
 
                 <div class="action-buttons">
                     <button class="print-btn" onclick="window.print()">Cetak Struk</button>

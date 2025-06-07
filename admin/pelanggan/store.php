@@ -3,19 +3,17 @@ session_start();
 require_once '../helper/connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $kode_menu = $_POST['kode_menu'];
+  $id_pelanggan = $_POST['id'];
   $nama = $_POST['nama'];
-  $harga = $_POST['harga'];
-  $deskripsi = $_POST['deskripsi'];
-  $stok = $_POST['stok'];
-  $username = '23080960032';
-  $kode_kategori = 'MKN-2156';
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $email = $_POST['email'];
 
   // Simpan data ke database
-  $query = mysqli_query($connection, "INSERT INTO tabel_menu 
-        (kode_menu, nama, harga, deskripsi, stok, username, kode_kategori, image) 
+  $query = mysqli_query($connection, "INSERT INTO tabel_pelanggan 
+        (id_pelanggan, nama, username, password, email) 
         VALUES 
-        ('$kode_menu', '$nama', '$harga', '$deskripsi', '$stok', '$username', '$kode_kategori', '$image_name')");
+        ('$id_pelanggan', '$nama', '$username', '$password', '$email')");
 
   if ($query) {
     $_SESSION['info'] = [

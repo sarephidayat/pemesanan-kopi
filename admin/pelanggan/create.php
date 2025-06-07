@@ -17,35 +17,29 @@ require_once '../helper/connection.php';
             <table cellpadding="8" class="w-100">
 
               <tr>
-                <td>Kode Menu</td>
-                <td><input class="form-control" type="text" name="kode_menu" size="20" required></td>
+                <td>ID Pelanggan</td>
+                <td><input class="form-control" type="number" name="id" size="20" required></td>
               </tr>
 
               <tr>
-                <td>Nama Makanan</td>
+                <td>Nama Pelanggan</td>
                 <td><input class="form-control" type="text" name="nama" size="20" required></td>
               </tr>
 
               <tr>
-                <td>Harga</td>
-                <td><input class="form-control" type="number" name="harga" size="20" required></td>
+                <td>Username</td>
+                <td><input class="form-control" type="text" name="username" size="20" required></td>
               </tr>
 
               <tr>
-                <td>Deskripsi</td>
-                <td><input class="form-control" type="text" name="deskripsi" size="20" required></td>
+                <td>Email</td>
+                <td><input class="form-control" type="email" name="email" size="20" required></td>
               </tr>
 
               <tr>
-                <td>Stok</td>
-                <td><input class="form-control" type="number" name="stok" size="20" required></td>
+                <td>Password</td>
+                <td><input class="form-control" type="password" name="password" size="20" required></td>
               </tr>
-
-              <tr>
-                <td>Gambar</td>
-                <td><input class="form-control" type="file" name="image" accept="image/*" required></td>
-              </tr>
-
 
               <tr>
                 <td>
