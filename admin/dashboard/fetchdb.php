@@ -15,6 +15,9 @@ switch ($functionName) {
     case 'getLeastMenu':
         getLeastMenu();
         break;
+    case 'getPenjualanMingguIni':
+        getPenjualanMingguIni();
+        break;
     default:
         echo json_encode(['status' => 'error', 'message' => 'Invalid function name']);
         break;
@@ -83,4 +86,36 @@ function getLeastMenu()
     echo json_encode($data);
 }
 
+
+function getPenjualanMingguIni()
+{
+    global $koneksi;
+
+    $data = [];
+    $query = "
+        SELECT 
+            tanggal_pesan AS tanggal,
+            SUM(total_harga) AS total
+        FROM 
+            tabel_pesan
+        WHERE 
+            tanggal_pesan >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)
+            AND status = 'selesai'
+        GROUP BY 
+            tanggal_pesan
+        ORDER BY 
+            tanggal_pesan ASC
+    ";
+
+    $result = mysqli_query($koneksi, $query);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = [
+            'tanggal' => $row['tanggal'],
+            'total' => (int) $row['total']
+        ];
+    }
+
+    echo json_encode($data);
+}
 

@@ -122,6 +122,17 @@ $total_dessert = mysqli_fetch_array($dessert)[0];
           <canvas id="chartLeastMenu"></canvas>
         </div>
       </div>
+
+      <!-- chart harga makanan -->
+      <div class="col-lg-6 col-md-6 col-sm-18 col-12 ">
+        <div class="card card-statistic-1 bg-white">
+          <div class="text-center mt-3 mb-3">
+            <h4>Grafik Penjualan</h4>
+          </div>
+          <canvas id="chartPenjualanMingguan"></canvas>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -136,6 +147,7 @@ $total_dessert = mysqli_fetch_array($dessert)[0];
 <script src="../assets/js/chart_stok.js"></script>
 <script src="../assets/js/chart_most_menu.js"></script>
 <script src="../assets/js/chart_least_menu.js"></script>
+<script src="../assets/js/chart_penjualan.js"></script>
 
 
 <?php

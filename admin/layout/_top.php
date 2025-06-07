@@ -39,7 +39,7 @@ isLogin();
   <link rel="stylesheet" href="../assets/css/tambahan.css">
 </head>
 
-<body onload="dataMenu(); mostMenu(); leastMenu();">
+<body onload="dataMenu(); mostMenu(); leastMenu(); penjualanMingguan()">
   <div id="app">
     <div class="main-wrapper main-wrapper-1">
       <?php

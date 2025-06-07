@@ -53,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['process_order'])) {
     $total_harga = calculateGrandTotal();
     $id_pesanan = 'ORD-' . date('Ymd') . '-' . rand(1000, 9999);
     $bukti_pembayaran = "Tunai";
+    $status = "pending";
 
     // Validasi input
     if (empty($nama) || empty($nomor_meja) || empty($metode_pembayaran)) {
@@ -95,10 +96,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['process_order'])) {
 
 
 
-    // Jika tidak ada error, simpan ke database
+
     if (empty($error_message)) {
-        $insert_order = "INSERT INTO tabel_pesan (id_pesanan, nama, total_harga, nomor_meja, catatan, tanggal_pesan, metode_pembayaran, id_pelanggan, bukti_pembayaran) 
-                         VALUES ('$id_pesanan', '$nama', $total_harga, $nomor_meja, '$catatan', NOW(), '$metode_pembayaran', $id_pelanggan, " . ($bukti_pembayaran ? "'$bukti_pembayaran'" : "Tunai") . ")";
+        $insert_order = "INSERT INTO tabel_pesan (id_pesanan, nama, total_harga, nomor_meja, catatan, tanggal_pesan, metode_pembayaran, id_pelanggan, bukti_pembayaran, status) 
+                         VALUES ('$id_pesanan', '$nama', $total_harga, $nomor_meja, '$catatan', NOW(), '$metode_pembayaran', $id_pelanggan, " . ($bukti_pembayaran ? "'$bukti_pembayaran'" : "Tunai") . ", '$status')";
 
         if (mysqli_query($conn, $insert_order)) {
             // Insert detail pemesanan
@@ -124,6 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['process_order'])) {
             $error_message = "Gagal memproses pesanan: " . mysqli_error($conn);
         }
     }
+
 
     if (!empty($error_message)) {
         echo "<script>alert('$error_message'); window.history.back();</script>";

@@ -139,13 +139,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php while ($row = mysqli_fetch_assoc($result_makanan)): ?>
                     <div class="menu-item">
                         <div class="item-image">
-                            <img src="image/<?php echo htmlspecialchars($row['image']); ?>"
+                            <img src="../admin/assets/img/<?php echo htmlspecialchars($row['image']); ?>"
                                 alt="<?php echo htmlspecialchars($row['nama']); ?>">
                         </div>
                         <div class="item-info">
                             <div class="item-name"><?php echo htmlspecialchars($row['nama']); ?></div>
                             <div class="item-price">Rp <?php echo number_format($row['harga'], 0, ',', '.'); ?></div>
                             <div class="item-description"><?php echo htmlspecialchars($row['deskripsi']); ?></div>
+                            <div class="item-stok" style="color: gray;">Stok : <?php echo htmlspecialchars($row['stok']); ?></div>
 
                             <!-- Form untuk menambah ke cart -->
                             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="add-to-cart-form">
@@ -171,13 +172,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php while ($row = mysqli_fetch_assoc($result_minuman)): ?>
                     <div class="menu-item">
                         <div class="item-image">
-                            <img src="image/<?php echo htmlspecialchars($row['image']); ?>"
+                            <img src="../admin/assets/img/<?php echo htmlspecialchars($row['image']); ?>"
                                 alt="<?php echo htmlspecialchars($row['nama']); ?>">
                         </div>
                         <div class="item-info">
                             <div class="item-name"><?php echo htmlspecialchars($row['nama']); ?></div>
                             <div class="item-price">Rp <?php echo number_format($row['harga'], 0, ',', '.'); ?></div>
                             <div class="item-description"><?php echo htmlspecialchars($row['deskripsi']); ?></div>
+                            <div class="item-stok" style="color: gray;">Stok : <?php echo htmlspecialchars($row['stok']); ?></div>
                             
                             <!-- Form untuk menambah ke cart -->
                             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="add-to-cart-form">
@@ -203,13 +205,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php while ($row = mysqli_fetch_assoc($result_dessert)): ?>
                     <div class="menu-item">
                         <div class="item-image">
-                            <img src="image/<?php echo htmlspecialchars($row['image']); ?>"
+                            <img src="../admin/assets/img/<?php echo htmlspecialchars($row['image']); ?>"
                                 alt="<?php echo htmlspecialchars($row['nama']); ?>">
                         </div>
                         <div class="item-info">
                             <div class="item-name"><?php echo htmlspecialchars($row['nama']); ?></div>
                             <div class="item-price">Rp <?php echo number_format($row['harga'], 0, ',', '.'); ?></div>
                             <div class="item-description"><?php echo htmlspecialchars($row['deskripsi']); ?></div>
+                            <div class="item-stok" style="color: gray;">Stok : <?php echo htmlspecialchars($row['stok']); ?></div>
                             
                             <!-- Form untuk menambah ke cart -->
                             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="add-to-cart-form">

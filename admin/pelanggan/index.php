@@ -6,8 +6,9 @@ $result = mysqli_query($connection, "SELECT * FROM tabel_pelanggan");
 ?>
 
 <section class="section">
-  <div class="section-header d-flex justify-content-between" style="background-color: #F5E9DA;">
-    <h1>List Dosen</h1>
+  <div class="section-header d-flex justify-content-between">
+    <h1>Daftar Pelanggan</h1>
+    <a href="./create.php" class="btn btn-primary custom-login-btn" style="background-color: #5c3d2e;">Tambah Data</a>
   </div>
   <div class="row">
     <div class="col-12">
@@ -19,8 +20,10 @@ $result = mysqli_query($connection, "SELECT * FROM tabel_pelanggan");
                 <tr>
                   <th>No</th>
                   <th>ID Pelanggan</th>
+                  <th>Username</th>
                   <th>Nama pelanggan</th>
                   <th>Email</th>
+                  <th>Password</th>
                   <th style="width: 150">Aksi</th>
                 </tr>
               </thead>
@@ -32,12 +35,17 @@ $result = mysqli_query($connection, "SELECT * FROM tabel_pelanggan");
                   <tr>
                     <td><?= $no++ ?></td>
                     <td><?= $data['id_pelanggan'] ?></td>
+                    <td><?= $data['username'] ?></td>
                     <td><?= $data['nama'] ?></td>
                     <td><?= $data['email'] ?></td>
+                    <td><?= $data['password'] ?></td>
                     <td>
                       <a class="btn btn-sm btn-danger mb-md-0 mb-1"
                         href="delete.php?id_pelanggan=<?= $data['id_pelanggan'] ?>">
                         <i class="fas fa-trash fa-fw"></i>
+                      </a>
+                      <a class="btn btn-sm btn-info" href="edit.php?id_pelanggan=<?= $data['id_pelanggan'] ?>">
+                        <i class="fas fa-edit fa-fw"></i>
                       </a>
                     </td>
                   </tr>

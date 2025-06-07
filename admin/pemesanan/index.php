@@ -23,6 +23,7 @@ $result = mysqli_query($connection, "SELECT * FROM tabel_pesan");
                   <th style="width: 10px;">Nomor Meja</th>
                   <th>Tanggal Pesan</th>
                   <th style="width: 10px;">Metode Pembayaran</th>
+                  <th>Status</th>
                   <th>Bukti Pembayaran</th>
                   <th style="width: 150">Order Detail</th>
                   <th style="width: 150">Aksi</th>
@@ -40,6 +41,15 @@ $result = mysqli_query($connection, "SELECT * FROM tabel_pesan");
                     <td><?= $data['nomor_meja'] ?></td>
                     <td><?= $data['tanggal_pesan'] ?></td>
                     <td><?= $data['metode_pembayaran'] ?></td>
+                    <?php if ($data['status'] == 'pending'): ?>
+                      <td><span class="badge badge-warning"><?= $data['status'] ?></span></td>
+                    <?php elseif ($data['status'] == 'dibatalkan'): ?>
+                      <td><span class="badge badge-danger"><?= $data['status'] ?></span></td>
+                    <?php elseif ($data['status'] == 'selesai'): ?>
+                      <td><span class="badge badge-success"><?= $data['status'] ?></span></td>
+                    <?php else: ?>
+                      <td><span class="badge badge-primary"><?= $data['status'] ?></span></td>
+                    <?php endif; ?>
                     <td><img style="width: 100px; height: auto;"
                         src="../../user/uploads/bukti-pembayaran/<?= $data['bukti_pembayaran'] ?>"
                         alt="<?= $data['bukti_pembayaran'] ?>"></td>
@@ -50,7 +60,10 @@ $result = mysqli_query($connection, "SELECT * FROM tabel_pesan");
                     </td>
                     <td>
                       <a class="btn btn-sm btn-danger mb-md-0 mb-1"
-                        href="delete.php?kode_menu=<?= $data['id_pesanan'] ?>">Batalkan
+                        href="delete.php?id_pesanan=<?= $data['id_pesanan'] ?>">Batalkan
+                      </a>
+                      <a class="btn btn-sm btn-success mb-md-0 mb-1"
+                        href="finish_order.php?id_pesanan=<?= $data['id_pesanan'] ?>">Selesai
                       </a>
                     </td>
                   </tr>

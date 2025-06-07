@@ -2,14 +2,14 @@
 session_start();
 require_once '../helper/connection.php';
 
-$kode_menu = $_GET['kode_menu'];
+$id_pesanan = $_GET['id_pesanan'];
 
-$result = mysqli_query($connection, "DELETE FROM tabel_menu WHERE kode_menu='$kode_menu'");
+$result = mysqli_query($connection, "UPDATE tabel_pesan SET status = 'dibatalkan' WHERE id_pesanan ='$id_pesanan'");
 
 if (mysqli_affected_rows($connection) > 0) {
   $_SESSION['info'] = [
     'status' => 'success',
-    'message' => 'Berhasil menghapus data'
+    'message' => 'Status pesanan berhasil dibatalkan.'
   ];
   header('Location: ./index.php');
 } else {
