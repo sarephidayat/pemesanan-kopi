@@ -2,11 +2,10 @@
 session_start();
 require_once '../helper/connection.php';
 
-$username = $_SESSION['username'];
-$password_lama = trim($_POST['password-lama']);
-$password_baru = trim($_POST['password-baru']);
-$password_confirm = trim($_POST['password-confirm']);
-
+$username = $_POST['username'];
+$password_lama = $_POST['password-lama'];
+$password_baru = $_POST['password-baru'];
+$password_confirm = $_POST['password-confirm'];
 
 // Cek konfirmasi password
 if ($password_baru !== $password_confirm) {
@@ -68,6 +67,5 @@ if ($query_update && mysqli_affected_rows($connection) > 0) {
   ];
 }
 
-header('Location: ./index.php');
+// header('Location: ./index.php');
 exit;
-?>

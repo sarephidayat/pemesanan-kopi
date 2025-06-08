@@ -84,10 +84,6 @@ $result = mysqli_query($connection, "SELECT * FROM tabel_admin");
                   <i class="fas fa-edit"></i> Edit Profile
                 </a>
 
-                <a href="ubah-password.php?username=<?php echo $admin_data['username'] ?>" class="btn btn-warning ml-2">
-                  <i class="fas fa-key"></i> Ganti Password
-                </a>
-
               </div>
             </div>
           </div>
@@ -105,37 +101,17 @@ $result = mysqli_query($connection, "SELECT * FROM tabel_admin");
                 Berikut langkah-langkah untuk mengubah informasi profil Anda:
               </p>
               <ol class="pl-3" style="line-height: 1.8;">
-                <li>Klik tombol <strong>Edit Profil</strong> (jika tersedia).</li>
+                <li>Klik tombol <strong>Edit Profil</strong></li>
                 <li>Ubah data yang ingin diperbarui, seperti nama, email, atau foto profil.</li>
                 <li>Setelah selesai, tekan tombol <strong>Simpan</strong>.</li>
                 <li>Logout dan login kembali jika perubahan tidak langsung terlihat.</li>
               </ol>
 
-              <!-- Bagian Ganti Password -->
-              <hr>
-              <p class="text-muted mb-2">
-                Langkah-langkah untuk mengganti password akun:
-              </p>
-              <ol class="pl-3" style="line-height: 1.8;">
-                <li>Masuk ke halaman <strong>Pengaturan Akun</strong> atau <strong>Ganti Password</strong>.</li>
-                <li>Masukkan password lama Anda terlebih dahulu.</li>
-                <li>Ketik password baru, lalu konfirmasi ulang password tersebut.</li>
-                <li>Klik tombol <strong>Simpan</strong> atau <strong>Perbarui Password</strong>.</li>
-              </ol>
 
-              <div class="alert alert-danger mt-4" role="alert">
-                <i class="fas fa-info-circle mr-2"></i>
-                <strong>Catatan:</strong> Username dan peran (role) tidak dapat diubah. Hubungi developer jika
-                diperlukan.
-              </div>
 
               <div class="text-right mt-4">
                 <a href="edit.php?username=<?php echo $admin_data['username'] ?>" class="btn btn-primary">
                   <i class="fas fa-edit"></i> Edit Profile
-                </a>
-
-                <a href="ubah-password.php?username=<?php echo $admin_data['username'] ?>" class="btn btn-warning ml-2">
-                  <i class="fas fa-key"></i> Ganti Password
                 </a>
               </div>
 

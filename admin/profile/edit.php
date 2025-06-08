@@ -55,7 +55,7 @@ $query = mysqli_query($connection, "SELECT * FROM tabel_admin WHERE username='$u
 
                 <tr>
                   <td>
-                    <input class="btn btn-primary d-inline" type="submit" name="proses" value="Ubah">
+                    <input class="btn btn-primary d-inline" type="submit" name="proses" value="Simpan">
                     <a href="./index.php" class="btn btn-danger ml-1">Batal</a>
                   <td>
                 </tr>
