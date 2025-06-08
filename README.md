@@ -84,3 +84,19 @@ Akses aplikasi melalui browser:
 2. MySQL 5.7 atau lebih tinggi
 3. Web server (Apache/Nginx)
 4. Browser modern dengan JavaScript enabled
+
+# Developer
+## 👤 Kontributor
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/sarephidayat">
+        <img src="https://raw.githubusercontent.com/sarephidayat/Aplikasi-Peminjaman-Alat/main/src/image/MetaStudioPhoto-122%20-%20Copy.jpg?s=460&v=4" width="120px;" alt="Foto Muhammad Syarifudin Hidayat"/><br />
+        <sub><b>Muhammad Syarifudin Hidayat</b></sub>
+      </a><br />
+      <a href="#" title="Penulis Konten">🖋</a>
+    </td>
+  </tr>
+</table>
+
