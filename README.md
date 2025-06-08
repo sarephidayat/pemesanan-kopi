@@ -21,33 +21,33 @@ Aplikasi berbasis web untuk memudahkan proses pemesanan kopi di cafe. Sistem ini
   - Bootstrap (Framework CSS responsif)
 
 ## 📦 Struktur Folder
-pemesanan-kopi/
-├── 📁 admin/                    # Panel admin
-│   ├── 📁 assets/              # File CSS, JS, gambar admin
-│   ├── 📁 dashboard/           # Halaman dashboard admin
-│   ├── 📁 data/                # Data management
-│   ├── 📁 dessert/             # Management menu dessert
-│   ├── 📁 helper/              # Helper functions
-│   ├── 📁 layout/              # Layout components
-│   ├── 📁 makanan/             # Management menu makanan
-│   ├── 📁 minuman/             # Management menu minuman
-│   ├── 📁 pelanggan/           # Management data pelanggan
-│   ├── 📁 pemesanan/           # Management pemesanan
-│   ├── 📁 profile/             # Profile management
-│   ├── 📄 index.php            # Halaman utama admin
-│   └── 📄 logout.php           # Logout admin
-├── 📁 user/                     # Panel pelanggan
-│   ├── 📁 assets/              # File CSS, JS, gambar user
-│   ├── 📁 image/               # Gambar produk
-│   ├── 📁 img/                 # Image assets
-│   ├── 📁 uploads/             # File upload user
-│   ├── 📄 index.php            # Halaman utama user
-│   ├── 📄 logout.php           # Logout user
-│   ├── 📄 order_confirmation.php # Konfirmasi pesanan
-│   └── 📄 order_details.php    # Detail pesanan
-├── 📄 index.html               # Landing page
-├── 📄 login.php                # Halaman login
-└── 📄 README.md                # Dokumentasi project
+    pemesanan-kopi/
+    ├── 📁 admin/                    # Panel admin
+    │   ├── 📁 assets/              # File CSS, JS, gambar admin
+    │   ├── 📁 dashboard/           # Halaman dashboard admin
+    │   ├── 📁 data/                # Data management
+    │   ├── 📁 dessert/             # Management menu dessert
+    │   ├── 📁 helper/              # Helper functions
+    │   ├── 📁 layout/              # Layout components
+    │   ├── 📁 makanan/             # Management menu makanan
+    │   ├── 📁 minuman/             # Management menu minuman
+    │   ├── 📁 pelanggan/           # Management data pelanggan
+    │   ├── 📁 pemesanan/           # Management pemesanan
+    │   ├── 📁 profile/             # Profile management
+    │   ├── 📄 index.php            # Halaman utama admin
+    │   └── 📄 logout.php           # Logout admin
+    ├── 📁 user/                     # Panel pelanggan
+    │   ├── 📁 assets/              # File CSS, JS, gambar user
+    │   ├── 📁 image/               # Gambar produk
+    │   ├── 📁 img/                 # Image assets
+    │   ├── 📁 uploads/             # File upload user
+    │   ├── 📄 index.php            # Halaman utama user
+    │   ├── 📄 logout.php           # Logout user
+    │   ├── 📄 order_confirmation.php # Konfirmasi pesanan
+    │   └── 📄 order_details.php    # Detail pesanan
+    ├── 📄 index.html               # Landing page
+    ├── 📄 login.php                # Halaman login
+    └── 📄 README.md                # Dokumentasi project
 
 ## 🧑‍💻 Cara Instalasi
 
