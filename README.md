@@ -85,9 +85,7 @@ Akses aplikasi melalui browser:
 3. Web server (Apache/Nginx)
 4. Browser modern dengan JavaScript enabled
 
-# Developer
-## 👤 Kontributor
-
+## 🧑‍💻 Developer
 <table>
   <tr>
     <td align="center">
