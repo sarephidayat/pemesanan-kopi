@@ -25,6 +25,7 @@ if (isset($_POST['submit'])) {
   if (mysqli_num_rows($result_pengguna) === 1 && $password == $row_pengguna['password']) {
     $_SESSION['login'] = $row_pengguna;
     $_SESSION['role'] = 'pelanggan';
+    $_SESSION['id_pelanggan'] = $row_pengguna['id_pelanggan'];
     header('Location: user/index.php');
     exit;
   }
@@ -40,7 +41,8 @@ if (isset($_POST['submit'])) {
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Login &mdash; UIN WS</title>
+  <title>Login &mdash; Cafe Ngelak</title>
+  <link rel="icon" type="image/png" href="./admin/assets/img/logo-removebg.png">
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -119,8 +121,8 @@ if (isset($_POST['submit'])) {
                   </div> -->
 
                   <div class="form-group">
-                    <button name="submit" type="submit" class="btn btn-primary btn-lg btn-block custom-login-btn"
-                      style="background-color: #4B2E1C;" tabindex="3">
+                    <button name="submit" type="submit" class="btn btn-lg btn-block custom-login-btn"
+                      style="background-color: #4B2E1C; color: white; font-size: small;" tabindex="3">
                       Login
                     </button>
                   </div>
@@ -141,7 +143,7 @@ if (isset($_POST['submit'])) {
               </div>
             </div>
             <div class="simple-footer">
-              &copy; 2025 Kopi Nuri. Semua hak dilindungi.
+              &copy; 2025 Kopi Ngelak. Semua hak dilindungi.
             </div>
           </div>
         </div>

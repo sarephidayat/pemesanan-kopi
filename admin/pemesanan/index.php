@@ -3,6 +3,12 @@ require_once '../layout/_top.php';
 require_once '../helper/connection.php';
 
 $result = mysqli_query($connection, "SELECT * FROM tabel_pesan");
+
+function formatRupiah($angka)
+{
+  return 'Rp' . number_format($angka, 0, ',', '.');
+}
+
 ?>
 
 <section class="section">
@@ -37,7 +43,7 @@ $result = mysqli_query($connection, "SELECT * FROM tabel_pesan");
                   <tr>
                     <td><?= $data['id_pesanan'] ?></td>
                     <td><?= $data['nama'] ?></td>
-                    <td><?= $data['total_harga'] ?></td>
+                    <td><?= formatRupiah($data['total_harga']) ?></td>
                     <td><?= $data['nomor_meja'] ?></td>
                     <td><?= $data['tanggal_pesan'] ?></td>
                     <td><?= $data['metode_pembayaran'] ?></td>

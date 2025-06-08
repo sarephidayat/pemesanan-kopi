@@ -1,5 +1,5 @@
 <?php
-$koneksi = mysqli_connect("localhost", "root", "", "db_pemesanan_kopinuri");
+$koneksi = mysqli_connect("localhost", "root", "", "db_pemesanan_kopi");
 if (!$koneksi) {
     die("Koneksi gagal: " . mysqli_connect_error());
 }

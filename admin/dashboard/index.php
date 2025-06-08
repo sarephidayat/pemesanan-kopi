@@ -20,7 +20,7 @@ $total_dessert = mysqli_fetch_array($dessert)[0];
   <div class="column">
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-        <div class="card card-statistic-1">
+        <div class="card card-statistic-1" style="border-left: 4px solid rgb(151, 89, 51);">
           <div class="card-icon bg-primary">
             <i class="far fa-user"></i>
           </div>
@@ -38,7 +38,7 @@ $total_dessert = mysqli_fetch_array($dessert)[0];
 
       <!-- Total Jumlah Makanan -->
       <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-        <div class="card card-statistic-1">
+        <div class="card card-statistic-1" style="border-left: 4px solid rgb(151, 89, 51);">
           <div class="card-icon bg-danger">
             <i class="bi bi-fork-knife text-white fs-5"></i>
           </div>
@@ -55,7 +55,7 @@ $total_dessert = mysqli_fetch_array($dessert)[0];
 
       <!-- Total Jumlah Minuman -->
       <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-        <div class="card card-statistic-1">
+        <div class="card card-statistic-1" style="border-left: 4px solid rgb(151, 89, 51);">
           <div class="card-icon bg-warning">
             <i class="bi bi-cup-straw text-white fs-5"></i>
           </div>
@@ -72,7 +72,7 @@ $total_dessert = mysqli_fetch_array($dessert)[0];
 
       <!-- Total Jumlah Dessert -->
       <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-        <div class="card card-statistic-1">
+        <div class="card card-statistic-1" style="border-left: 4px solid rgb(151, 89, 51);">
           <div class="card-icon bg-success">
             <i class="bi bi-cookie text-white fs-5"></i>
           </div>

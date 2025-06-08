@@ -5,7 +5,7 @@
 session_start();
 
 // Koneksi database
-$conn = mysqli_connect("localhost", "root", "", "db_pemesanan_kopinuri");
+$conn = mysqli_connect("localhost", "root", "", "db_pemesanan_kopi");
 if (!$conn) {
     die("Koneksi gagal: " . mysqli_connect_error());
 }
@@ -62,7 +62,8 @@ function formatRupiah($angka)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konfirmasi Pesanan Kopi Ngelak</title>
+    <title>Pemesanan &mdash; Cafe Ngelak</title>
+    <link rel="icon" type="image/png" href="../admin/assets/img/logo-removebg.png">
     <link rel="stylesheet" href="assets/css/style-order-confirmation.css">
 </head>
 

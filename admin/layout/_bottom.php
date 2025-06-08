@@ -1,7 +1,7 @@
 </div>
 <footer class="main-footer">
   <div class="footer-left">
-    &copy; 2025 Kopi Nuri. Semua hak dilindungi.</a>
+    &copy; 2025 Kopi Ngelak. Semua hak dilindungi.</a>
   </div>
   <div class="footer-right">
 

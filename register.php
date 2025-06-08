@@ -1,6 +1,6 @@
 <?php
 // Koneksi ke database
-$conn = mysqli_connect("localhost", "root", "", "db_pemesanan_kopinuri");
+$conn = mysqli_connect("localhost", "root", "", "db_pemesanan_kopi");
 if (!$conn) {
   die("Koneksi gagal: " . mysqli_connect_error());
 }
@@ -135,9 +135,9 @@ if (isset($_POST['submit'])) {
                   </div> -->
 
                   <div class="form-group">
-                    <button name="submit" type="submit" class="btn btn-primary btn-lg btn-block custom-login-btn"
-                      style="background-color: #4B2E1C;" tabindex="3">
-                      Login
+                    <button name="submit" type="submit" class="btn btn-lg btn-block custom-login-btn"
+                      style="background-color: #4B2E1C; color: white; font-size: small;" tabindex="3">
+                      Register
                     </button>
                   </div>
                   <div class="login-link" style="text-align: center;">

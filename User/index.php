@@ -5,7 +5,7 @@ if (!isset($_SESSION['login'])) {
     exit();
 }
 
-$conn = mysqli_connect("localhost", "root", "", "db_pemesanan_kopinuri");
+$conn = mysqli_connect("localhost", "root", "", "db_pemesanan_kopi");
 if (!$conn) {
     die("Koneksi gagal: " . mysqli_connect_error());
 }
@@ -113,7 +113,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kopi Ngelak</title>
+    <title>Pemesanan &mdash; Cafe Ngelak</title>
+    <link rel="icon" type="image/png" href="../admin/assets/img/logo-removebg.png">
     <link rel="stylesheet" href="assets/css/style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
