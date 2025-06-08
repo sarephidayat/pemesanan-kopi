@@ -52,7 +52,6 @@ Aplikasi berbasis web untuk memudahkan proses pemesanan kopi di cafe. Sistem ini
 ## 🧑‍💻 Cara Instalasi
 
 ### 1. Clone Repositori
-    ```bash
     git clone https://github.com/sarephidayat/pemesanan-kopi.git
 
 ### 2. Pindahkan ke Folder Server Lokal
