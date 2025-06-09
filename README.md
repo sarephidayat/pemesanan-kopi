@@ -8,7 +8,7 @@ Aplikasi berbasis web untuk memudahkan proses pemesanan kopi di cafe. Sistem ini
 - 💰 Sistem pembayaran (Tunai, QRIS)
 - 📋 Manajemen menu oleh admin
 - 📊 Laporan penjualan berbasis chart
-- 🔒 Login multi-role (admin, pelanggan, kasir)
+- 🔒 Login multi-role (admin, pelanggan)
 - 📱 Interface responsif & user-friendly
 
 ## 🛠️ Teknologi yang Digunakan
